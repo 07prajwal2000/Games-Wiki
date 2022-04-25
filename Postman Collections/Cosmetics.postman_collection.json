@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "f654cce3-c9aa-4cd5-b976-a174d73cf466",
+		"name": "Cosmetics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/Cosmetics/ById/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Cosmetics",
+						"ById",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/Cosmetics/ByName/Sprunk",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Cosmetics",
+						"ByName",
+						"Sprunk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Limit and Skip",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/Cosmetics?limit=10&skip=0",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Cosmetics"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Cosmetic",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Sprunk\",\r\n  \"description\": \"“If you want all of the taste with none of the waist. try our new improved Diet Sprunk. We replaced the sugar with cancerous neurotoxins — you'll never know the difference!”. \\n Sprunk is a carbonated lemon-lime beverage claimed in a Grand Theft Auto: San Andreas radio commercial to contain 10 times the caffeine and sugar, mixed with mercury, ether, and benzene, and packaged in fragmentation grenade-shaped cans. The company's slogan since Grand Theft Auto IV has been The Essence of Life\",\r\n  \"gameName\": \"GTA V\",\r\n  \"posterUrl\": \"https://static.wikia.nocookie.net/gtawiki/images/9/96/Sprunk-HDUniverse-Logo.png/revision/latest/scale-to-width-down/350?cb=20180523124658\",\r\n  \"tags\": [\r\n    \"Slurp Slurp Mmmm!\",\r\n    \"A Taste of Things to Come...\",\r\n    \"The Essence of Life\",\r\n    \"Slurp Sprunk Mmm! Delicious\",\r\n    \"Overclock your life\"\r\n  ],\r\n  \"imageUrls\": [\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/9/9d/Sprunk-GTAIV-Wallpaper.jpg/revision/latest/scale-to-width-down/185?cb=20210817070230\",\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/6/6e/Sprunk-Extreme.PNG/revision/latest/scale-to-width-down/185?cb=20091218035512\",\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/b/bb/SprunkBenson-GTAIV-front.png/revision/latest/scale-to-width-down/185?cb=20160811161532\",\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/b/b7/SprunkExtremePony-GTAV-front.png/revision/latest/scale-to-width-down/185?cb=20180608153231\",\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/e/e3/Bati801RR-GTAV-front-Sprunk.png/revision/latest/scale-to-width-down/185?cb=20160214210359\",\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/3/34/SprunkBuffalo-GTAVPC-front.png/revision/latest/scale-to-width-down/185?cb=20150529175841\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/Cosmetics/Add",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Cosmetics",
+						"Add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Cosmetic",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"“If you want all of the taste with none of the waist. try our new improved Diet Sprunk. We replaced the sugar with cancerous neurotoxins — you'll never know the difference!”. \\n Sprunk is a carbonated lemon-lime beverage claimed in a Grand Theft Auto: San Andreas radio commercial to contain 10 times the caffeine and sugar, mixed with mercury, ether, and benzene, and packaged in fragmentation grenade-shaped cans. The company's slogan since Grand Theft Auto IV has been The Essence of Life\",\r\n  \"gameName\": \"GTA V\",\r\n  \"posterUrl\": \"https://static.wikia.nocookie.net/gtawiki/images/9/96/Sprunk-HDUniverse-Logo.png/revision/latest/scale-to-width-down/350?cb=20180523124658\",\r\n  \"tags\": [\r\n    \"Slurp Slurp Mmmm!\",\r\n    \"A Taste of Things to Come...\",\r\n    \"The Essence of Life\",\r\n    \"Slurp Sprunk Mmm! Delicious\",\r\n    \"Overclock your life\"\r\n  ],\r\n  \"imageUrls\": [\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/9/9d/Sprunk-GTAIV-Wallpaper.jpg/revision/latest/scale-to-width-down/185?cb=20210817070230\",\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/6/6e/Sprunk-Extreme.PNG/revision/latest/scale-to-width-down/185?cb=20091218035512\",\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/b/bb/SprunkBenson-GTAIV-front.png/revision/latest/scale-to-width-down/185?cb=20160811161532\",\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/b/b7/SprunkExtremePony-GTAV-front.png/revision/latest/scale-to-width-down/185?cb=20180608153231\",\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/e/e3/Bati801RR-GTAV-front-Sprunk.png/revision/latest/scale-to-width-down/185?cb=20160214210359\",\r\n    \"https://static.wikia.nocookie.net/gtawiki/images/3/34/SprunkBuffalo-GTAVPC-front.png/revision/latest/scale-to-width-down/185?cb=20150529175841\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/Cosmetics/Update/Sprunk",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Cosmetics",
+						"Update",
+						"Sprunk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/Cosmetics/Delete/Sprunk",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Cosmetics",
+						"Delete",
+						"Sprunk"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

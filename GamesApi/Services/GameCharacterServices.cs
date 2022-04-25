@@ -42,6 +42,13 @@ public class GameCharacterServices : IGameCharacterServices
         {
             var response = new Response<List<string>>();
 
+            if (limit > 50)
+            {
+                response.Data = null;
+                response.Message = "The Limit QueryParam has GreaterThan 50.";
+                return response;
+            }
+            
             var gameCharacters = _dbContext.GameCharacters
                 .Query()
                 .Where(x => x.GameName == gameName)

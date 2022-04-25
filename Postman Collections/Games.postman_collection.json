@@ -1,0 +1,415 @@
+{
+	"info": {
+		"_postman_id": "2569484a-5d8c-4086-9b4f-8708f0fd78b1",
+		"name": "Games",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Delete Game",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/Games/Delete/3",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Games",
+						"Delete",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "not found / 404",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL1}}/api/Games/Delete/3",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"Games",
+								"Delete",
+								"3"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 15:25:35 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "text/plain; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		},
+		{
+			"name": "Add Game",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/api/Games/Add",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Games",
+						"Add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "not found / 404",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL1}}/api/Games/Add",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"Games",
+								"Add"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 15:49:15 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "text/plain; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		},
+		{
+			"name": "Update Game",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/api/Games/Update/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Games",
+						"Update",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL1}}/api/Games/Update/1",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"Games",
+								"Update",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 18:19:36 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "application/json; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		},
+		{
+			"name": "Get Game by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/Games/2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Games",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL1}}/api/Games/2",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"Games",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 18:19:47 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "application/json; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		},
+		{
+			"name": "Get Game Names by Limit and Skip",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/Games/Names?Limit=10&SkipCount=0",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Games",
+						"Names"
+					],
+					"query": [
+						{
+							"key": "Limit",
+							"value": "10"
+						},
+						{
+							"key": "SkipCount",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL1}}/api/Games/Names?Limit=10&SkipCount=0",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"Games",
+								"Names"
+							],
+							"query": [
+								{
+									"key": "Limit",
+									"value": "10"
+								},
+								{
+									"key": "SkipCount",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 18:21:32 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "application/json; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		},
+		{
+			"name": "Get Game by Limit and Skip",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/Games/Games?Limit=10&SkipCount=0",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"Games",
+						"Games"
+					],
+					"query": [
+						{
+							"key": "Limit",
+							"value": "10"
+						},
+						{
+							"key": "SkipCount",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL1}}/api/Games/Games?Limit=10&SkipCount=0",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"Games",
+								"Games"
+							],
+							"query": [
+								{
+									"key": "Limit",
+									"value": "10"
+								},
+								{
+									"key": "SkipCount",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 18:19:30 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "application/json; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		}
+	]
+}

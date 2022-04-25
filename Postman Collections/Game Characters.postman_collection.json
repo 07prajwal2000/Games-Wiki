@@ -1,0 +1,478 @@
+{
+	"info": {
+		"_postman_id": "410838b8-41dc-4de7-966f-3d0bb13f4231",
+		"name": "Game Characters",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Character",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/GameCharacter/Get/Gta%20v",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"GameCharacter",
+						"Get",
+						"Gta%20v"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL1}}/api/GameCharacter/Get/Gta%20v",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"GameCharacter",
+								"Get",
+								"Gta%20v"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 18:21:44 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "application/json; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		},
+		{
+			"name": "Get Game Characters by Limit and Skip",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/GameCharacter/Get?limit=10&skipCount=0",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"GameCharacter",
+						"Get"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "skipCount",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL1}}/api/GameCharacter/Get?limit=10&skipCount=0",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"GameCharacter",
+								"Get"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "skipCount",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 18:46:12 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "application/json; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		},
+		{
+			"name": "Get Game Character Names by Limit and Skip",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/GameCharacter/GetNames/NEED%20FOR%20SPEED:%20HEAT?limit=20&skipCount=0",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"GameCharacter",
+						"GetNames",
+						"NEED%20FOR%20SPEED:%20HEAT"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "20"
+						},
+						{
+							"key": "skipCount",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL1}}/api/GameCharacter/GetNames/NEED%20FOR%20SPEED:%20HEAT?limit=20&skipCount=0",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"GameCharacter",
+								"GetNames",
+								"NEED%20FOR%20SPEED:%20HEAT"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "skipCount",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 18:46:32 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "application/json; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		},
+		{
+			"name": "Get Game Character by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/GameCharacter/Get/15",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"GameCharacter",
+						"Get",
+						"15"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL1}}/api/GameCharacter/Get/15",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"GameCharacter",
+								"Get",
+								"15"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 18:46:50 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "application/json; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		},
+		{
+			"name": "Add Character",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/api/GameCharacter/Add",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"GameCharacter",
+						"Add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL1}}/api/GameCharacter/Add",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"GameCharacter",
+								"Add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 18:46:01 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "application/json; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		},
+		{
+			"name": "Delete Character",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/GameCharacter/Delete/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"GameCharacter",
+						"Delete",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL1}}/api/GameCharacter/Delete/1",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"GameCharacter",
+								"Delete",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 16:52:57 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "application/json; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		},
+		{
+			"name": "Update Character",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/api/GameCharacter/Update/9",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"GameCharacter",
+						"Update",
+						"9"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL1}}/api/GameCharacter/Update/9",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"GameCharacter",
+								"Update",
+								"9"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Sun, 24 Apr 2022 16:53:40 GMT"
+						},
+						{
+							"key": "server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "application/json; charset=utf-8 content type is not supported in the response body"
+				}
+			]
+		}
+	]
+}

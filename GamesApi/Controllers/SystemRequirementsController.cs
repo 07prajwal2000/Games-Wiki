@@ -15,6 +15,13 @@ public class SystemRequirementsController : ControllerBase
         _services = services;
     }
     
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult> GetSystemRequirements(int id)
+    {
+        var result = await _services.GetSystemRequirementForGameById(id);
+        return result.Data is null ? NotFound(result) : Ok(result);
+    }
+    
     [HttpGet("{gameName}")]
     public async Task<IActionResult> GetSystemRequirements(string gameName)
     {

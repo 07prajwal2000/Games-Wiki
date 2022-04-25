@@ -22,6 +22,12 @@ public class GamesServices : IGamesServices
         return await Task.Run(() =>
         {
             var response = new Response<IEnumerable<Game>>();
+            if (limit > 50)
+            {
+                response.Data = null;
+                response.Message = "The Limit QueryParam has GreaterThan 50.";
+                return response;
+            }
             var games = _dbContext.Games.Query().Skip(skipCount).Limit(limit).ToList();
 
             response.Data = games;

@@ -30,6 +30,19 @@ public class SystemRequirementsServices : ISystemRequirementsServices
         });
     }
         
+    public async Task<Response<SystemRequirement>> GetSystemRequirementForGameById(int id)
+    {
+        return await Task.Run(() =>
+        {
+            var response = new Response<SystemRequirement>();
+            var collections = _dbContext.SystemRequirements;
+            var sysReq = collections.Query().Where(x => x.Id == id).FirstOrDefault();
+            response.Data = sysReq;
+            response.Message = sysReq is not null ? "Found." : "No Data Found.";
+            return response;
+        });
+    }
+        
     public async Task<Response<bool>> AddSystemRequirementForGame(AddSystemRequirementDto dto)
     {
         return await Task.Run(() =>

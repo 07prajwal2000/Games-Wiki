@@ -11,5 +11,6 @@ public class AutomapperProfile : Profile
         CreateMap<AddGame, Game>();
         CreateMap<AddGameCharacterDto, GameCharacter>();
         CreateMap<AddSystemRequirementDto, SystemRequirement>();
+        CreateMap<AddCosmeticDto, Cosmetic>();
     }
 }

@@ -15,6 +15,7 @@ builder.Services.AddAutoMapper(options =>
 });
 builder.Services.AddScoped<LiteDbContext>();
 builder.Services.AddScoped<IGamesServices, GamesServices>();
+builder.Services.AddScoped<ICosmeticsServices, CosmeticsServices>();
 builder.Services.AddScoped<IGameCharacterServices, GameCharacterServices>();
 builder.Services.AddScoped<ISystemRequirementsServices, SystemRequirementsServices>();
 builder.Services.AddLiteDb(builder.Configuration.GetConnectionString("LiteDb"));

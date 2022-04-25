@@ -9,4 +9,5 @@ public interface ISystemRequirementsServices
     Task<Response<bool>> AddSystemRequirementForGame(AddSystemRequirementDto dto);
     Task<Response<SystemRequirement>> UpdateSystemRequirementForGame(string gameName, UpdateSystemRequirementDto dto);
     Task<Response<bool>> DeleteSystemRequirementForGame(string gameName);
+    Task<Response<SystemRequirement>> GetSystemRequirementForGameById(int id);
 }
