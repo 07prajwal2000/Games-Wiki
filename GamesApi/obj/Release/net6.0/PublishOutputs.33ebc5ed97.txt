@@ -1,0 +1,15 @@
+D:\Programming-Projects\EFCoreLearningApp\Publish\database.db
+D:\Programming-Projects\EFCoreLearningApp\Publish\EFCoreLearning.exe
+D:\Programming-Projects\EFCoreLearningApp\Publish\appsettings.Development.json
+D:\Programming-Projects\EFCoreLearningApp\Publish\appsettings.json
+D:\Programming-Projects\EFCoreLearningApp\Publish\EFCoreLearning.dll
+D:\Programming-Projects\EFCoreLearningApp\Publish\EFCoreLearning.deps.json
+D:\Programming-Projects\EFCoreLearningApp\Publish\EFCoreLearning.runtimeconfig.json
+D:\Programming-Projects\EFCoreLearningApp\Publish\EFCoreLearning.pdb
+D:\Programming-Projects\EFCoreLearningApp\Publish\AutoMapper.dll
+D:\Programming-Projects\EFCoreLearningApp\Publish\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Programming-Projects\EFCoreLearningApp\Publish\LiteDB.dll
+D:\Programming-Projects\EFCoreLearningApp\Publish\Microsoft.OpenApi.dll
+D:\Programming-Projects\EFCoreLearningApp\Publish\Swashbuckle.AspNetCore.Swagger.dll
+D:\Programming-Projects\EFCoreLearningApp\Publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Programming-Projects\EFCoreLearningApp\Publish\Swashbuckle.AspNetCore.SwaggerUI.dll
