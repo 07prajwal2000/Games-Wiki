@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using EFCoreLearning.Models;
-using EFCoreLearning.Models.Dtos;
+using GamesApi.Models;
+using GamesApi.Models.Dtos;
 
-namespace EFCoreLearning.Extras;
+namespace GamesApi.Extras;
 
 public class AutomapperProfile : Profile
 {

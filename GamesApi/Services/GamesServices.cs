@@ -1,20 +1,20 @@
 ﻿using AutoMapper;
-using EFCoreLearning.Models;
-using EFCoreLearning.Models.Dtos;
-using EFCoreLearning.Services.IServices;
-using LiteDB;
+using GamesApi.Data;
+using GamesApi.Models;
+using GamesApi.Models.Dtos;
+using GamesApi.Services.IServices;
 
-namespace EFCoreLearning.Services;
+namespace GamesApi.Services;
 
 public class GamesServices : IGamesServices
 {
     private readonly IMapper _mapper;
-    private readonly ILiteDatabase _liteDatabase;
+    private readonly LiteDbContext _dbContext;
 
-    public GamesServices(IMapper mapper, ILiteDatabase liteDatabase)
+    public GamesServices(IMapper mapper, LiteDbContext dbContext)
     {
         _mapper = mapper;
-        _liteDatabase = liteDatabase;
+        _dbContext = dbContext;
     }
 
     public async Task<Response<IEnumerable<Game>>> GetGamesByLimit(int limit = 10, int skipCount = 0)
@@ -22,7 +22,7 @@ public class GamesServices : IGamesServices
         return await Task.Run(() =>
         {
             var response = new Response<IEnumerable<Game>>();
-            var games = _liteDatabase.GetCollection<Game>().Query().Skip(skipCount).Limit(limit).ToList();
+            var games = _dbContext.Games.Query().Skip(skipCount).Limit(limit).ToList();
 
             response.Data = games;
             response.Message = games.Count > 0 ? "Found." : "Not Found.";
@@ -37,7 +37,7 @@ public class GamesServices : IGamesServices
         {
             var response = new Response<IEnumerable<string>>();
 
-            var games = _liteDatabase.GetCollection<Game>()
+            var games = _dbContext.Games
                 .Query()
                 .Select(x => x.Name)
                 .Skip(skipCount)
@@ -56,7 +56,7 @@ public class GamesServices : IGamesServices
         {
             var response = new Response<Game?>();
 
-            var game = _liteDatabase.GetCollection<Game>().Query()
+            var game = _dbContext.Games.Query()
                 .Where(x => x.Id == id)
                 .FirstOrDefault();
 
@@ -73,7 +73,7 @@ public class GamesServices : IGamesServices
         {
             var response = new Response<bool>();
 
-            var games = _liteDatabase.GetCollection<Game>();
+            var games = _dbContext.Games;
 
             var condition = games.Query().Where(x => x.Name == addGameDto.Name).Exists();
 
@@ -93,7 +93,7 @@ public class GamesServices : IGamesServices
         {
             var response = new Response<Game?>();
 
-            var games = _liteDatabase.GetCollection<Game>();
+            var games = _dbContext.Games;
             var game = games.Query()
                 .Where(x => x.Id == gameId)
                 .FirstOrDefault();
@@ -126,7 +126,7 @@ public class GamesServices : IGamesServices
         return await Task.Run(() =>
         {
             var response = new Response<bool>();
-            int deleted = _liteDatabase.GetCollection<Game>().DeleteMany(game => game.Id == gameId);
+            int deleted = _dbContext.Games.DeleteMany(game => game.Id == gameId);
             var condition = deleted > 0;
             response.Data = condition;
             response.Message = condition ? "Successfully Deleted." : "No Game with Id: " + gameId + " Found.";

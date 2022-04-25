@@ -1,4 +1,4 @@
-﻿namespace EFCoreLearning.Models.Dtos;
+﻿namespace GamesApi.Models.Dtos;
 
 public record AddSystemRequirementDto(
     string GameName,

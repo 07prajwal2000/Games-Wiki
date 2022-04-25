@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace EFCoreLearning.Models;
+﻿namespace GamesApi.Models;
 
 public class Game
 {

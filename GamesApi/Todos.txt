@@ -1,8 +1,7 @@
 ﻿TODO: 
-    System Requirements Api
     Cars List Api
     Cosmetics Api
     Game Maps Api
     Latest Game News
     Game Stories Api
-    
+    Home Page Suggestions List

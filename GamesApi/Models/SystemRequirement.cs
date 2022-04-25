@@ -1,4 +1,4 @@
-﻿namespace EFCoreLearning.Models;
+﻿namespace GamesApi.Models;
 
 public class SystemRequirement
 {

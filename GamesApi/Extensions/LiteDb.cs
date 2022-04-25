@@ -1,6 +1,6 @@
 ﻿using LiteDB;
 
-namespace EFCoreLearning.Extensions;
+namespace GamesApi.Extensions;
 
 public static class LiteDb
 {

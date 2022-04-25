@@ -1,7 +1,7 @@
-﻿using EFCoreLearning.Models;
-using EFCoreLearning.Models.Dtos;
+﻿using GamesApi.Models;
+using GamesApi.Models.Dtos;
 
-namespace EFCoreLearning.Services.IServices;
+namespace GamesApi.Services.IServices;
 
 public interface ISystemRequirementsServices
 {

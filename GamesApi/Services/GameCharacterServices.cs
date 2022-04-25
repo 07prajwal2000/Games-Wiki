@@ -1,20 +1,21 @@
 ﻿using AutoMapper;
-using EFCoreLearning.Models;
-using EFCoreLearning.Models.Dtos;
-using EFCoreLearning.Services.IServices;
+using GamesApi.Data;
+using GamesApi.Models;
+using GamesApi.Models.Dtos;
+using GamesApi.Services.IServices;
 using LiteDB;
 
-namespace EFCoreLearning.Services;
+namespace GamesApi.Services;
 
 public class GameCharacterServices : IGameCharacterServices
 {
     private readonly IMapper _mapper;
-    private readonly ILiteDatabase _liteDatabase;
+    private readonly LiteDbContext _dbContext;
 
-    public GameCharacterServices(IMapper mapper, ILiteDatabase liteDatabase)
+    public GameCharacterServices(IMapper mapper, LiteDbContext dbContext)
     {
         _mapper = mapper;
-        _liteDatabase = liteDatabase;
+        _dbContext = dbContext;
     }
 
     public async Task<Response<List<GameCharacter>>> GetAllGameCharacters(int limit = 10, int skipCount = 0)
@@ -23,7 +24,7 @@ public class GameCharacterServices : IGameCharacterServices
         {
             var response = new Response<List<GameCharacter>>();
 
-            var gameCharacters = _liteDatabase.GetCollection<GameCharacter>()
+            var gameCharacters = _dbContext.GameCharacters
                 .Query()
                 .Skip(skipCount)
                 .Limit(limit)
@@ -41,7 +42,7 @@ public class GameCharacterServices : IGameCharacterServices
         {
             var response = new Response<List<string>>();
 
-            var gameCharacters = _liteDatabase.GetCollection<GameCharacter>()
+            var gameCharacters = _dbContext.GameCharacters
                 .Query()
                 .Where(x => x.GameName == gameName)
                 .Select(x => x.CharacterName)
@@ -61,7 +62,7 @@ public class GameCharacterServices : IGameCharacterServices
         {
             var response = new Response<GameCharacter?>();
 
-            var gameCharacter = _liteDatabase.GetCollection<GameCharacter>()
+            var gameCharacter = _dbContext.GameCharacters
                 .Query()
                 .Where(x => x.Id == id)
                 .FirstOrDefault();
@@ -79,7 +80,7 @@ public class GameCharacterServices : IGameCharacterServices
         {
             var response = new Response<List<GameCharacter>>();
 
-            var gameCharacters = _liteDatabase.GetCollection<GameCharacter>()
+            var gameCharacters = _dbContext.GameCharacters
                 .Query()
                 .Where(x => x.GameName == gameName)
                 .ToList();
@@ -97,8 +98,8 @@ public class GameCharacterServices : IGameCharacterServices
         {
             var response = new Response<bool>();
 
-            var gameCharacterCollection = _liteDatabase.GetCollection<GameCharacter>();
-            var games = _liteDatabase.GetCollection<Game>();
+            var gameCharacterCollection = _dbContext.GameCharacters;
+            var games = _dbContext.Games;
 
             if (gameCharacterCollection.Query().Where(x => x.CharacterName == gameCharacterDto.CharacterName).Exists())
             {
@@ -128,14 +129,14 @@ public class GameCharacterServices : IGameCharacterServices
         {
             var response = new Response<GameCharacter?>();
 
-            var gameCharacterCollection = _liteDatabase.GetCollection<GameCharacter>();
+            var gameCharacterCollection = _dbContext.GameCharacters;
 
             var character = gameCharacterCollection.Query()
                 .Where(x => x.Id == id);
 
             var updateChar = character.FirstOrDefault();
 
-            var games = _liteDatabase.GetCollection<Game>();
+            var games = _dbContext.Games;
 
             if (gameCharacterCollection.Query().Where(x => x.CharacterName == updateGameCharacterDto.CharacterName).Exists())
             {
@@ -178,7 +179,7 @@ public class GameCharacterServices : IGameCharacterServices
         {
             var response = new Response<bool>();
 
-            var gameCharacterCollection = _liteDatabase.GetCollection<GameCharacter>();
+            var gameCharacterCollection = _dbContext.GameCharacters;
             var count = gameCharacterCollection.DeleteMany(x => x.Id == id);
             if (count <= 0)
             {

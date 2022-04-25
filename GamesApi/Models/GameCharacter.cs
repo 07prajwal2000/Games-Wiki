@@ -1,6 +1,4 @@
-﻿using LiteDB;
-
-namespace EFCoreLearning.Models
+﻿namespace GamesApi.Models
 {
     public class GameCharacter
     {

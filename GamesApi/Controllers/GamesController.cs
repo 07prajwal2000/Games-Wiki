@@ -1,8 +1,8 @@
-﻿using EFCoreLearning.Models.Dtos;
-using EFCoreLearning.Services.IServices;
+﻿using GamesApi.Models.Dtos;
+using GamesApi.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EFCoreLearning.Controllers;
+namespace GamesApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
