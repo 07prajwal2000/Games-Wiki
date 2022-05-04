@@ -1,4 +1,5 @@
-﻿using GamesApi.Models.Dtos;
+﻿using GamesApi.Filters;
+using GamesApi.Models.Dtos;
 using GamesApi.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace GamesApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[ApiKeyFilter]
 public class SystemRequirementsController : ControllerBase
 {
     private readonly ISystemRequirementsServices _services;
@@ -29,6 +31,7 @@ public class SystemRequirementsController : ControllerBase
         return result.Data is null ? NotFound(result) : Ok(result);
     }
     
+    [MasterApiKeyFilter]
     [HttpPost("Add")]
     public async Task<IActionResult> AddSystemRequirements(AddSystemRequirementDto dto)
     {
@@ -36,6 +39,7 @@ public class SystemRequirementsController : ControllerBase
         return !result.Data ? NotFound(result) : Ok(result);
     }
     
+    [MasterApiKeyFilter]
     [HttpPut("Update/{gameName}")]
     public async Task<IActionResult> UpdateSystemRequirements(string gameName, UpdateSystemRequirementDto dto)
     {
@@ -43,6 +47,7 @@ public class SystemRequirementsController : ControllerBase
         return result.Data is null ? NotFound(result) : Ok(result);
     }
     
+    [MasterApiKeyFilter]
     [HttpDelete("Delete/{gameName}")]
     public async Task<IActionResult> DeleteSystemRequirements(string gameName)
     {

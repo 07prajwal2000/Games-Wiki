@@ -1,4 +1,5 @@
-﻿using GamesApi.Models.Dtos;
+﻿using GamesApi.Filters;
+using GamesApi.Models.Dtos;
 using GamesApi.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace GamesApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[ApiKeyFilter]
 public class GameCharacterController : ControllerBase
 {
     private readonly IGameCharacterServices _characterServices;
@@ -43,6 +45,7 @@ public class GameCharacterController : ControllerBase
         return character.Data is {Count: > 0} ? Ok(character) : NotFound(character);
     }
 
+    [MasterApiKeyFilter]
     [HttpPost("Add")]
     public async Task<IActionResult> GetCharacter(AddGameCharacterDto characterDto)
     {
@@ -50,6 +53,7 @@ public class GameCharacterController : ControllerBase
         return success.Data ? Ok(success) : NotFound(success);
     }
 
+    [MasterApiKeyFilter]
     [HttpPut("Update/{id:int}")]
     public async Task<IActionResult> UpdateCharacter(int id, AddGameCharacterDto characterDto)
     {
@@ -57,6 +61,7 @@ public class GameCharacterController : ControllerBase
         return character.Data is not null? Ok(character) : NotFound(character);
     }
 
+    [MasterApiKeyFilter]
     [HttpDelete("Delete/{id:int}")]
     public async Task<IActionResult> DeleteCharacter(int id)
     {

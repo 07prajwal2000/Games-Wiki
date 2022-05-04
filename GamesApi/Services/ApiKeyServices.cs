@@ -17,6 +17,19 @@ public class ApiKeyServices : IApiKeyServices
         _mapper = mapper;
     }
 
+    public async Task<Response<List<ApiKey>>> GetApiKeys(int limit, int skip)
+    {
+        return await Task.Run(() =>
+        {
+            var response = new Response<List<ApiKey>>();
+            
+            var collection = _dbContext.ApiKeys.Query().Skip(skip).Limit(limit).ToList();
+            response.Data = collection;
+            response.Message = collection is not null ? "Success." : "No keys found.";
+            return response;
+        });
+    }
+
     public async Task<Response<ApiKey>> RefreshApiKey(string email)
     {
         return await Task.Run(() =>
@@ -137,4 +150,5 @@ public class ApiKeyServices : IApiKeyServices
             return response;
         });
     }
+    
 }

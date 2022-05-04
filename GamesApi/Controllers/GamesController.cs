@@ -1,4 +1,5 @@
-﻿using GamesApi.Models.Dtos;
+﻿using GamesApi.Filters;
+using GamesApi.Models.Dtos;
 using GamesApi.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace GamesApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[ApiKeyFilter]
 public class GamesController : ControllerBase
 {
     private readonly IGamesServices _gamesServices;
@@ -38,6 +40,7 @@ public class GamesController : ControllerBase
         return res.Data is not null ? Ok(res) : NotFound(res);
     }
     
+    [MasterApiKeyFilter]
     [HttpPost("Add")]
     public async Task<ActionResult> AddGame([FromBody] AddGame gameDto)
     {
@@ -45,6 +48,7 @@ public class GamesController : ControllerBase
         return res.Data ? Ok(res) : NotFound(res);
     }
 
+    [MasterApiKeyFilter]
     [HttpPut("Update/{id:int}")]
     public async Task<ActionResult> AddGame(int id, [FromBody] AddGame gameDto)
     {
@@ -52,6 +56,7 @@ public class GamesController : ControllerBase
         return res.Data is null ? NotFound(res) : Ok(res);
     }
 
+    [MasterApiKeyFilter]
     [HttpDelete("Delete/{id:int}")]
     public async Task<ActionResult> DeleteGame(int id)
     {

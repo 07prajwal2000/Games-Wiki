@@ -1,4 +1,5 @@
-﻿using GamesApi.Models.Dtos;
+﻿using GamesApi.Filters;
+using GamesApi.Models.Dtos;
 using GamesApi.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace GamesApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[ApiKeyFilter]
 public class CosmeticsController : ControllerBase
 {
     private readonly ICosmeticsServices _services;
@@ -37,6 +39,7 @@ public class CosmeticsController : ControllerBase
     }
     
     [HttpPost("Add")]
+    [MasterApiKeyFilter]
     public async Task<IActionResult> AddCosmetic(AddCosmeticDto dto)
     {
         var data = await _services.AddCosmetic(dto);
@@ -44,6 +47,7 @@ public class CosmeticsController : ControllerBase
     }
     
     [HttpPut("Update/{name}")]
+    [MasterApiKeyFilter]
     public async Task<IActionResult> UpdateCosmetic(string name, UpdateCosmeticDto dto)
     {
         var data = await _services.UpdateCosmetic(name, dto);
@@ -51,6 +55,7 @@ public class CosmeticsController : ControllerBase
     }
     
     [HttpDelete("Delete/{id}")]
+    [MasterApiKeyFilter]
     public async Task<IActionResult> DeleteCosmetic(int id)
     {
         var data = await _services.DeleteCosmetic(id);

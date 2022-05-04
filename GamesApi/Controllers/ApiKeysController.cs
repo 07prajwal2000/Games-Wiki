@@ -1,3 +1,4 @@
+using GamesApi.Filters;
 using GamesApi.Models.Dtos;
 using GamesApi.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,14 @@ public class ApiKeysController : ControllerBase
         return data.Data is null ? NotFound(data) : Ok(data);
     }
     
+    [MasterApiKeyFilter]
+    [HttpGet("All")]
+    public async Task<ActionResult> GetApiKeys(int limit, int skip)
+    {
+        var data = await _services.GetApiKeys(limit, skip);
+        return data.Data is null ? NotFound(data) : Ok(data);
+    }
+    
     [HttpPost("Register")]
     public async Task<ActionResult> RegisterApiKey(RegisterApiKey dto)
     {
@@ -29,6 +38,7 @@ public class ApiKeysController : ControllerBase
         return data.Data is null ? NotFound(data) : Ok(data);
     }
 
+    [MasterApiKeyFilter]
     [HttpDelete("Block/{email}")]
     public async Task<ActionResult> BlockApiKey(string email)
     {
@@ -36,6 +46,7 @@ public class ApiKeysController : ControllerBase
         return data.Data is null ? NotFound(data) : Ok(data);
     }
     
+    [MasterApiKeyFilter]
     [HttpPut("UnBlock/{email}")]
     public async Task<ActionResult> UnBlockApiKey(string email)
     {
@@ -43,6 +54,7 @@ public class ApiKeysController : ControllerBase
         return data.Data is null ? NotFound(data) : Ok(data);
     }
 
+    [MasterApiKeyFilter]
     [HttpPut("Renewal/{email}")]
     public async Task<ActionResult> RenewalApiKey(string email)
     {
@@ -50,6 +62,7 @@ public class ApiKeysController : ControllerBase
         return data.Data is null ? NotFound(data) : Ok(data);
     }
 
+    [ApiKeyFilter]
     [HttpPut("Refresh/{email}")]
     public async Task<ActionResult> RefreshApiKey(string email)
     {

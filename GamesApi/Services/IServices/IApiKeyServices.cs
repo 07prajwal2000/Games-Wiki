@@ -7,6 +7,7 @@ public interface IApiKeyServices
 {
     Task<Response<ApiKey>> RegisterApiKey(RegisterApiKey dto);
     Task<Response<ApiKey>> GetApiKey(string email);
+    Task<Response<List<ApiKey>>> GetApiKeys(int limit, int skip);
     Task<Response<ApiKey>> RefreshApiKey(string email);
     Task<Response<ApiKey>> BlockApiKey(string email);
     Task<Response<ApiKey>> UnBlockApiKey(string email);

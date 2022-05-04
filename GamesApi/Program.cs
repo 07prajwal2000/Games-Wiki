@@ -1,6 +1,7 @@
 using GamesApi.Data;
 using GamesApi.Extensions;
 using GamesApi.Extras;
+using GamesApi.Filters;
 using GamesApi.Models;
 using GamesApi.Services;
 using GamesApi.Services.IServices;
@@ -15,6 +16,7 @@ builder.Services.AddAutoMapper(options =>
     options.AddProfile<AutomapperProfile>();
 });
 builder.Services.AddScoped<LiteDbContext>();
+builder.Services.AddScoped<FilterHelpers>();
 builder.Services.AddScoped<IGamesServices, GamesServices>();
 builder.Services.AddScoped<ICosmeticsServices, CosmeticsServices>();
 builder.Services.AddScoped<IGameCharacterServices, GameCharacterServices>();
