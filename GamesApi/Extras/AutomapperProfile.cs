@@ -13,5 +13,7 @@ public class AutomapperProfile : Profile
         CreateMap<AddSystemRequirementDto, SystemRequirement>();
         CreateMap<AddCosmeticDto, Cosmetic>();
         CreateMap<RegisterApiKey, ApiKey>();
+        CreateMap<AddVehicleDto, Vehicle>();
+        CreateMap<UpdateVehicleDto, Vehicle>();
     }
 }

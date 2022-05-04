@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace GamesApi.Filters;
 
-public class MasterApiKeyFilter : AuthorizeAttribute, IAsyncAuthorizationFilter
+public class MasterApiKeyFilter : Attribute, IAsyncAuthorizationFilter
 {
     public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
     {
