@@ -1,6 +1,7 @@
 using GamesApi.Data;
 using GamesApi.Extensions;
 using GamesApi.Extras;
+using GamesApi.Models;
 using GamesApi.Services;
 using GamesApi.Services.IServices;
 
@@ -18,6 +19,7 @@ builder.Services.AddScoped<IGamesServices, GamesServices>();
 builder.Services.AddScoped<ICosmeticsServices, CosmeticsServices>();
 builder.Services.AddScoped<IGameCharacterServices, GameCharacterServices>();
 builder.Services.AddScoped<ISystemRequirementsServices, SystemRequirementsServices>();
+builder.Services.AddScoped<IApiKeyServices, ApiKeyServices>();
 builder.Services.AddLiteDb(builder.Configuration.GetConnectionString("LiteDb"));
 
 builder.Services.AddCors(options => {

@@ -9,6 +9,7 @@ public class LiteDbContext
     public readonly ILiteCollection<GameCharacter> GameCharacters;
     public readonly ILiteCollection<SystemRequirement> SystemRequirements;
     public readonly ILiteCollection<Cosmetic> Cosmetics;
+    public readonly ILiteCollection<ApiKey> ApiKeys;
 
     public LiteDbContext(ILiteDatabase liteDatabase)
     {
@@ -16,5 +17,6 @@ public class LiteDbContext
         GameCharacters = liteDatabase.GetCollection<GameCharacter>();
         SystemRequirements = liteDatabase.GetCollection<SystemRequirement>();
         Cosmetics = liteDatabase.GetCollection<Cosmetic>();
+        ApiKeys = liteDatabase.GetCollection<ApiKey>();
     }
 }
