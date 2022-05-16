@@ -23,9 +23,22 @@ public class VehicleController : ControllerBase
 		return Ok(new Response<string[]>{Data = Enum.GetNames(typeof(VehicleType)), Message = "Success"});
 	}
 	
-	[HttpGet("/test2")]
-	public IActionResult Test2(Vehicle v)
+	[HttpGet("Vehicles")]
+	public async Task<IActionResult> GetVehicles([FromQuery]int limit = 10, [FromQuery]int skip = 0)
 	{
-		return Ok(new {Enums = Enum.GetNames(typeof(VehicleType)), Query = v});
+		if (limit > 100)
+		{
+			return BadRequest(new Response<string>{Message = "Limit exceeded over 100"});
+		}
+		var data = await _services.GetVehicles(limit, skip);
+		return data.Data is null ? NotFound(data) : Ok(data);
 	}
+	
+	[HttpGet("Vehicle/{id}")]
+	public async Task<IActionResult> GetVehicle(int id)
+	{
+		var data = await _services.GetVehicle(id);
+		return data.Data is null ? NotFound(data) : Ok(data);
+	}
+	
 }

@@ -1,3 +1,4 @@
+using GamesApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -11,17 +12,20 @@ public class ApiKeyFilter : Attribute, IAsyncAuthorizationFilter
     {
         await Task.Run(async () =>
         {
+            var errorResponse = new Response<string>();
             FilterHelpers helpers = context.HttpContext.RequestServices.GetService<FilterHelpers>()!;
             var key = context.HttpContext.Request.Headers["API_KEY"].ToString();
             if (!Guid.TryParse(key, out var apiKey))
             {
-                context.Result = new UnauthorizedObjectResult("You Don't have access to this endpoint.");
+                errorResponse.Message = "You Don't have access to this endpoint.";
+                context.Result = new UnauthorizedObjectResult(errorResponse);
                 return;
             }
 
             if (!await helpers.ValidateApiKey(apiKey))
             {
-                context.Result = new UnauthorizedObjectResult("You Don't have access to this endpoint.");
+                errorResponse.Message = "The Key may be expired or blocked.";
+                context.Result = new UnauthorizedObjectResult(errorResponse);
             }
         });
     }

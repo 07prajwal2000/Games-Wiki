@@ -1,3 +1,4 @@
+using GamesApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -10,6 +11,7 @@ public class MasterApiKeyFilter : Attribute, IAsyncAuthorizationFilter
     {
         await Task.Run(async () =>
         {
+            var errorResponse = new Response<string>();
             var config = context.HttpContext.RequestServices.GetService<IConfiguration>() !;
             var helpers = context.HttpContext.RequestServices.GetService<FilterHelpers>() !;
 
@@ -17,19 +19,22 @@ public class MasterApiKeyFilter : Attribute, IAsyncAuthorizationFilter
             var masterKey = config["MASTER_KEY"] !;
             if (string.IsNullOrEmpty(apiKeyString) || context.HttpContext.Request.Headers["MASTER_KEY"] != masterKey)
             {
-                context.Result = new UnauthorizedObjectResult("ADMIN ACCESS ONLY");
+                errorResponse.Message = "ADMIN ACCESS ONLY";
+                context.Result = new UnauthorizedObjectResult(errorResponse);
                 return;
             }
 
             if (!Guid.TryParse(apiKeyString, out var apiKey))
             {
-                context.Result = new UnauthorizedObjectResult("NOT AN API KEY.");
+                errorResponse.Message = "NOT AN API KEY.";
+                context.Result = new UnauthorizedObjectResult(errorResponse);
                 return;
             }
             
             if (!await helpers.ValidateApiKey(apiKey))
             {
-                context.Result = new UnauthorizedObjectResult("Key may be expired or blocked.");
+                errorResponse.Message = "Key may be expired or blocked.";
+                context.Result = new UnauthorizedObjectResult(errorResponse);
                 return;
             }
         });

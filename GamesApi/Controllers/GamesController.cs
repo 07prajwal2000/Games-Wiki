@@ -1,4 +1,5 @@
 ﻿using GamesApi.Filters;
+using GamesApi.Models;
 using GamesApi.Models.Dtos;
 using GamesApi.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,10 @@ public class GamesController : ControllerBase
     [HttpGet("Names")]
     public async Task<ActionResult> GetGameNames([FromQuery] int limit = 10, [FromQuery] int skipCount = 0)
     {
+        if (limit > 50)
+        {
+            return BadRequest(new Response<string>{Message = "Limit exceeded over 50"});
+        }
         var res = await _gamesServices.GetGameNamesByLimit(limit, skipCount);
         var resCount = res.Data!.Count();
         return resCount > 0 ? Ok(res) : NotFound(res);

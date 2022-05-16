@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace GamesApi.Models;
 
 public class Vehicle
@@ -5,7 +7,8 @@ public class Vehicle
 	public int Id { get; set; }
 	public string ModelName { get; set; } = "";
 	public string Description { get; set; } = "";
-	public VehicleType VehicleType { get; set; }
+	[JsonIgnore]public VehicleType VehicleType { get; set; }
+	public string VehicleVariant => VehicleType.ToString();
 	public string Game { get; set; } = "";
 	public uint PassengerCapacity { get; set; } = 1;
 	public string ImageUrl { get; set; } = "";
@@ -15,6 +18,7 @@ public class Vehicle
 	public decimal TopSpeedInMph => (decimal) (TopSpeedInKmh * 0.621371);
 
 	public VehicleManufacturer Manufacturer { get; set; }
+
 	public List<VehicleAbility>? Abilities { get; set; }
 	public List<VehicleAttachment>? Attachments { get; set; }
 	public List<string>? Tags { get; set; }

@@ -1,4 +1,5 @@
 using GamesApi.Filters;
+using GamesApi.Models;
 using GamesApi.Models.Dtos;
 using GamesApi.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
@@ -25,8 +26,12 @@ public class ApiKeysController : ControllerBase
     
     [MasterApiKeyFilter]
     [HttpGet("All")]
-    public async Task<ActionResult> GetApiKeys(int limit, int skip)
+    public async Task<ActionResult> GetApiKeys([FromQuery]int limit = 10, [FromQuery]int skip = 0)
     {
+        if (limit > 100)
+        {
+            return BadRequest(new Response<string>{Message = "Limit exceeded over 100"});
+        }
         var data = await _services.GetApiKeys(limit, skip);
         return data.Data is null ? NotFound(data) : Ok(data);
     }

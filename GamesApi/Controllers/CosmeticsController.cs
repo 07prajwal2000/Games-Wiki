@@ -1,4 +1,5 @@
 ﻿using GamesApi.Filters;
+using GamesApi.Models;
 using GamesApi.Models.Dtos;
 using GamesApi.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +35,10 @@ public class CosmeticsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetCosmetics([FromQuery]int limit = 10, [FromQuery]int skip = 0)
     {
+        if (limit > 50)
+        {
+            return BadRequest(new Response<string>{Message = "Limit exceeded over 50"});
+        }
         var data = await _services.GetCosmetics(limit, skip);
         return data.Data is null ? NotFound(data) : Ok(data);
     }
